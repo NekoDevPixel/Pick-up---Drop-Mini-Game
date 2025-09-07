@@ -369,6 +369,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfd16a82328b634792f8273473fd519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ascore: 10
+  Cscore: 9
+  Gscore: 7
+  Kscore: 5
+  Oscore: 3
+  Wscore: 1
+  Bombscore: 15
+  Total_score: 0
 --- !u!4 &700435006
 Transform:
   m_ObjectHideFlags: 0
@@ -430,6 +438,7 @@ GameObject:
   - component: {fileID: 1645954639}
   - component: {fileID: 1645954638}
   - component: {fileID: 1645954640}
+  - component: {fileID: 1645954641}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -636,6 +645,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1645954641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645954633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d7fe1dfc61fc0469aa38a7f35dd917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661016317
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spTime: 0
-  ResetTime: 0.09
+  ResetTime: 1
   Fruitzs:
   - {fileID: 8853897922185266881, guid: 1cf9248d63978574f834a39fe8bfbdd7, type: 3}
   - {fileID: 6272140555148780259, guid: f4b2fa0fbb3061f4783755c6364de7d1, type: 3}
@@ -738,6 +759,8 @@ MonoBehaviour:
   - {fileID: 2643430209773774428, guid: acf823bb8402aff4c9d728cedbf5aa1e, type: 3}
   - {fileID: 8358678943557269523, guid: 6da76b771f9b7bc498e1d2c8d9cbb313, type: 3}
   parent: {fileID: 1309086508}
+  Fruitprob: 0.4
+  Bombprob: 0.6
 --- !u!1 &1905115776
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,8 +851,9 @@ GameObject:
   - component: {fileID: 1985104523}
   - component: {fileID: 1985104522}
   - component: {fileID: 1985104524}
+  - component: {fileID: 1985104525}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -951,6 +975,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1985104525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985104521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de39c7be93664a48824fe712280735d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
