@@ -7,6 +7,7 @@ public class DropFruitz : MonoBehaviour
 
     private int ChNum;
     public float spTime = 0f;
+    public float ResetTime = 1f;
 
     public GameObject[] Fruitzs;
     public Transform parent;
@@ -37,7 +38,7 @@ public class DropFruitz : MonoBehaviour
 
     void spwFruitz()
     {
-        if (spTime >= 1f)
+        if (spTime >= ResetTime)
         {
             ChNum = Random.Range(0, Fruitzs.Length);
             Instantiate(Fruitzs[ChNum], boxPos, Quaternion.identity, parent);
