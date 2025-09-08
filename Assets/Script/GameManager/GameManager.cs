@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     [Header("플레이어 정보")]
     public int Total_score = 0;
 
+    [Header("게임 제한 시간")]
+    public float limtTime = 120f;
+    
+
 
     public void CheckFruitz(String fruitzName)
     {
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
             {
                 Total_score = 0;
             }
-            
+
         }
     }
 
