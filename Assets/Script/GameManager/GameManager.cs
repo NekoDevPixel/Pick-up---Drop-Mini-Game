@@ -4,8 +4,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    private getScore GetScore;
+
+    void Start()
+    {
+        GetScore = FindFirstObjectByType<getScore>();
+    }
     void Awake()
     {
+        
         if (Instance != null)
         {
             Destroy(this);
@@ -40,32 +47,39 @@ public class GameManager : MonoBehaviour
         if (fruitzName == "Apple(Clone)")
         {
             Total_score += Ascore;
+            GetScore.lookscore(Ascore);
         }
         else if (fruitzName == "Cherry(Clone)")
         {
             Total_score += Cscore;
+            GetScore.lookscore(Cscore);
         }
         else if (fruitzName == "Grapes(Clone)")
         {
             Total_score += Gscore;
+            GetScore.lookscore(Gscore);
         }
         else if (fruitzName == "Kiwi(Clone)")
         {
             Total_score += Kscore;
+            GetScore.lookscore(Kscore);
         }
         else if (fruitzName == "Orange(Clone)")
         {
             Total_score += Oscore;
+            GetScore.lookscore(Oscore);
         }
         else if (fruitzName == "Watermelon(Clone)")
         {
             Total_score += Wscore;
+            GetScore.lookscore(Wscore);
         }
         else if (fruitzName == "Bomb(Clone)")
         {
-            if (Total_score >= Bombscore)
+            GetScore.lookscore(Bombscore);
+            if (Total_score >= Math.Abs(Bombscore))
             {
-                Total_score -= Bombscore;
+                Total_score += Bombscore;
             }
             else
             {

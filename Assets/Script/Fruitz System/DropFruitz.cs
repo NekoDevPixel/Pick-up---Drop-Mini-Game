@@ -37,9 +37,10 @@ public class DropFruitz : MonoBehaviour
 
     void spwPos()
     {
-        Bounds bounds = spwBox.bounds;
+        Bounds bounds = spwBox.bounds; // Collider spwBox의 경계영역 값을 가져온다 
+        //예를 들어 BoxCollider를 사용한다면 가로(x) 세로의(y) 크기의 값을 가져온다고 생각하면 된다.
         boxPos = new Vector2(
-            Random.Range(bounds.min.x, bounds.max.x),
+            Random.Range(bounds.min.x, bounds.max.x), //
             Random.Range(bounds.min.y, bounds.max.y)
         );
 
@@ -53,7 +54,7 @@ public class DropFruitz : MonoBehaviour
         {
             if (rand < Bombprob)
             {
-                Instantiate(Fruitzs[6], boxPos, Quaternion.identity, parent);
+                Instantiate(Fruitzs[6], boxPos, Quaternion.identity, parent); //오브젝트 Clone 생성 함수
                 spTime = 0f;
             }
             else if (rand < Bombprob + Fruitprob)
