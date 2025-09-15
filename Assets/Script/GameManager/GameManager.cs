@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     }
     void Awake()
     {
-        
+
         if (Instance != null)
         {
             Destroy(this);
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     [Header("게임 제한 시간")]
     public float limtTime = 120f;
-    
+
 
 
     public void CheckFruitz(String fruitzName)
@@ -89,4 +89,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
 }

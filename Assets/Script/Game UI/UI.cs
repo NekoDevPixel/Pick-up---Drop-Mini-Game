@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
     public Text TimeBord;
 
     private float startTime;
+    public float remain;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class UI : MonoBehaviour
         scoreBord.text = $"{GameManager.Instance.Total_score}";
 
         float elapsed = Time.time - startTime; //현재 시간
-        float remain = GameManager.Instance.limtTime - elapsed; // 남은 시간
+        remain = GameManager.Instance.limtTime - elapsed; // 남은 시간
 
         if (remain < 0) remain = 0;
 
