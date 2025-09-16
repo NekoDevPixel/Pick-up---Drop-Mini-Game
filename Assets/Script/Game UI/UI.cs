@@ -6,12 +6,14 @@ public class UI : MonoBehaviour
 {
     public Text scoreBord;
     public Text TimeBord;
+    public Slider slider;
 
     private float startTime;
     public float remain;
 
     void Start()
     {
+        slider.value = 1;
         startTime = Time.time;
     }
 
@@ -21,6 +23,7 @@ public class UI : MonoBehaviour
 
         float elapsed = Time.time - startTime; //현재 시간
         remain = GameManager.Instance.limtTime - elapsed; // 남은 시간
+        slider.value = remain/GameManager.Instance.limtTime;
 
         if (remain < 0) remain = 0;
 
