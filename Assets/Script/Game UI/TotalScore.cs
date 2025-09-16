@@ -9,7 +9,6 @@ public class TotalScore : MonoBehaviour
 
     public TextMeshProUGUI TTscore;
     public float downspeed = 3f;
-    private UI ui;
     private bool end = false;
     private float NTime;
     private float endTime;
@@ -21,7 +20,6 @@ public class TotalScore : MonoBehaviour
         endTime = GameManager.Instance.limtTime;
         panel.SetActive(false);
         scoreImage.SetActive(false);
-        ui = FindFirstObjectByType<UI>();
     }
 
     // Update is called once per frame
