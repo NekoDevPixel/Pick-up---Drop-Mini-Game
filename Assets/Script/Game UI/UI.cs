@@ -27,7 +27,7 @@ public class UI : MonoBehaviour
         int minutes = Mathf.FloorToInt(remain / 60f);   // 분 ex)119/60 = 1.9 0.9는 버리고 1만 사용
         int seconds = Mathf.FloorToInt(remain % 60f);   // 초 ex)119%60 = 59.xxx 0.xxx버리고 59만 사용
 
-        TimeBord.text = $"Time: {minutes:00} : {seconds:00}";
+        TimeBord.text = $"{minutes:00} : {seconds:00}";
         //{0:00}<- 0번쨰 자리를 두자리 수로 설정 : {1:00} <- 1번쨰 자리를 두자리 수로 설정
         // $"{minutes:00} : {seconds:00}"; 이렇게 사용해도 가능
     }
