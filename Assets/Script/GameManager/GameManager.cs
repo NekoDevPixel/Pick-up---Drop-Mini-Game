@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             {"Watermelon",0},
             {"Bomb",0}
         };
-        
+
         GetScore = FindFirstObjectByType<getScore>();
         uI = FindFirstObjectByType<UI>();
     }
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     // public int CountO = 0;
     // public int CountW = 0;
     // public int CountB = 0;
-   
+
 
 
 
@@ -131,5 +131,11 @@ public class GameManager : MonoBehaviour
         // 현재 씬 다시 불러오기
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
+    }
+    
+    public void GoMain()
+    {
+        // 현재 씬 다시 불러오기
+        SceneManager.LoadScene("MainMenu");
     }
 }

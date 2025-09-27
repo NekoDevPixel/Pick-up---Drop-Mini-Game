@@ -14,6 +14,7 @@ public class TotalScore : MonoBehaviour
     private float endTime;
     private bool moveimg = false;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +50,7 @@ public class TotalScore : MonoBehaviour
         end = true;
         GameManager.Instance.PauseGame();
         TTscore.text = $"{GameManager.Instance.Total_score}";
+        GameData.Instance.yourScore.Add(GameManager.Instance.Total_score);
         if (end)
         {
             panel.SetActive(true);
