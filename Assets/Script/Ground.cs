@@ -8,6 +8,10 @@ public class Ground : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            Destroy(collision.gameObject);
+        }
         
     }
 }
