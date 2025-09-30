@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 755a3e70dc903cd4894a31e7c5402398
+guid: 1aeea00c40478294cb2d4e86a0d77ad4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7786099498275843585
-    second: Generated_0
+      213: -4310901215558178337
+    second: ChangeIcon_0
+  - first:
+      213: 2665960827780062847
+    second: ChangeIcon_1
+  - first:
+      213: -5230451420976038378
+    second: ChangeIcon_2
+  - first:
+      213: 1860069353762992288
+    second: ChangeIcon_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,30 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Generated_0
+      name: ChangeIcon_0
       rect:
         serializedVersion: 2
-        x: 147
-        y: 147
-        width: 730
-        height: 730
+        x: 96
+        y: 339
+        width: 277
+        height: 270
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10e249cbd38cd0c60800000000000000
-      internalID: 7786099498275843585
+      spriteID: fd9ead04f2a9c24c0800000000000000
+      internalID: -4310901215558178337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChangeIcon_1
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 583
+        width: 276
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7edfec7f356ff420800000000000000
+      internalID: 2665960827780062847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChangeIcon_2
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 334
+        width: 275
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e39cd0524b967b0800000000000000
+      internalID: -5230451420976038378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChangeIcon_3
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 275
+        width: 268
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a032a0e83b40d910800000000000000
+      internalID: 1860069353762992288
       vertices: []
       indices: 
       edges: []
@@ -138,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Generated_0: 7786099498275843585
+      ChangeIcon_0: -4310901215558178337
+      ChangeIcon_1: 2665960827780062847
+      ChangeIcon_2: -5230451420976038378
+      ChangeIcon_3: 1860069353762992288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

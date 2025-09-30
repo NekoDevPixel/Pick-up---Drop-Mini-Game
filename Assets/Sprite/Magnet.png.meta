@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 755a3e70dc903cd4894a31e7c5402398
+guid: 1c072ca5aa233cc48a602aefc392207a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7786099498275843585
-    second: Generated_0
+      213: 1535325516486818496
+    second: Magnet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Generated_0
+      name: Magnet_0
       rect:
         serializedVersion: 2
-        x: 147
-        y: 147
-        width: 730
-        height: 730
+        x: 131
+        y: 107
+        width: 762
+        height: 754
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10e249cbd38cd0c60800000000000000
-      internalID: 7786099498275843585
+      spriteID: 0ca3ac83c629e4510800000000000000
+      internalID: 1535325516486818496
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Generated_0: 7786099498275843585
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

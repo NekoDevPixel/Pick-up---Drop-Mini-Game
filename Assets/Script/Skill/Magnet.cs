@@ -1,0 +1,58 @@
+using UnityEngine;
+
+public class Magnet : MonoBehaviour
+{
+    public bool onSkill = false;
+    
+    [Header("플레이어에게 다가가는 속도")]
+    public float speed = 5f;
+    public GameObject player;
+    [Header("스킬 작동 시간")]
+    public float Ontime = 10f;
+
+    private float saveT = 0;
+    private float gen = 1f;
+
+    void Start()
+    {
+        saveT = Ontime;
+    }
+
+    void Update()
+    {
+        Timer();
+        if (onSkill)
+        {
+            Magnetsk();
+            if (gen < 0)
+            {
+                restT();
+            }
+        }
+    }
+
+    void Timer()
+    {
+        saveT -= Time.deltaTime;
+        gen = saveT / Ontime;
+    }
+
+    void Magnetsk()
+    {
+        GameObject[] targetobj = GameObject.FindGameObjectsWithTag("Fruit");
+
+        for (int i = 0; i < targetobj.Length; i++)
+        {
+            Vector2 vector2 = (player.transform.position - targetobj[i].transform.position).normalized;
+            targetobj[i].transform.position += (Vector3)(vector2 * speed * Time.deltaTime);
+        }
+
+    }
+
+    private void restT()
+    {
+        saveT = Ontime;
+        gen = 1f;
+        onSkill = false;
+    }
+}
