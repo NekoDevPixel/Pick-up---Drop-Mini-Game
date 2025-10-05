@@ -8,7 +8,7 @@ public class Magnet : MonoBehaviour
     public float speed = 5f;
     public GameObject player;
     [Header("스킬 작동 시간")]
-    public float Ontime = 10f;
+    public float Ontime = 20f;
 
     private float saveT = 0;
     private float gen = 1f;

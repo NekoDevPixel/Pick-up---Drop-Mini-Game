@@ -42,6 +42,13 @@ public class CoLTimeUI : MonoBehaviour
         MGbtn.fillAmount = 1f;
     }
 
+    // public void clickChange()
+    // {
+    //     clickbtn = true;
+    //     probbtn.onSkill = true;
+    //     MGbtn.fillAmount = 1f;
+    // }
+
     private void restTime()
     {
         savetime = maxTime;

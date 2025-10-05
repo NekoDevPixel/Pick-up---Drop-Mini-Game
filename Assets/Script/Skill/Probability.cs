@@ -7,10 +7,11 @@ public class Probability : MonoBehaviour
     private float saveFprop = 0f;
     private float saveBprop = 0f;
     private bool ClickProp = false;
+    public bool onSkill = false;
 
     [Header("변경 확률 값")]
-    public float fruitProp = 0f;
-    public float bombProp = 0f;
+    public float fruitProp = 0.9f;
+    public float bombProp = 0.1f;
     [Header("스킬 발동 시간")]
     public float Ontime = 10f;
 
@@ -29,8 +30,8 @@ public class Probability : MonoBehaviour
         Timer();
         if (ClickProp)
         {
-            dropFruitz.Bombprob = saveFprop;
-            dropFruitz.Fruitprob = saveBprop;
+            dropFruitz.Bombprob = bombProp;
+            dropFruitz.Fruitprob = fruitProp;
             if (gen < 0)
             {
                 
