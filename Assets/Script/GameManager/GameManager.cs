@@ -23,18 +23,13 @@ public class GameManager : MonoBehaviour
             {"Bomb",0}
         };
 
-        GetScore = FindFirstObjectByType<getScore>();
-        uI = FindFirstObjectByType<UI>();
+        
     }
     void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null) { Destroy(this); } else { Instance = this; }
+        GetScore = FindFirstObjectByType<getScore>();
+        uI = FindFirstObjectByType<UI>();
     }
 
     [Header("과일 점수")]
@@ -127,7 +122,7 @@ public class GameManager : MonoBehaviour
     public void OnRetry()
     {
         // 현재 씬 다시 불러오기
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("InGame");
         Time.timeScale = 1f;
     }
     

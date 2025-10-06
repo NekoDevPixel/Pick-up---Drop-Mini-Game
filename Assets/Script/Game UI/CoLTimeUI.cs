@@ -38,7 +38,6 @@ public class CoLTimeUI : MonoBehaviour
     public void clickMgbtn()
     {
         clickbtn = true;
-        magnet.onSkill = true;
         MGbtn.fillAmount = 1f;
     }
 

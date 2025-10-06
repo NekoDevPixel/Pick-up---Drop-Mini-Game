@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 472755429}
   - component: {fileID: 472755428}
   - component: {fileID: 472755427}
+  - component: {fileID: 472755430}
   - component: {fileID: 472755426}
   m_Layer: 5
   m_Name: MagnetSK
@@ -1191,6 +1192,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 472755430}
+        m_TargetAssemblyTypeName: Magnet, Assembly-CSharp
+        m_MethodName: Mgbbtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &472755428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,6 +1242,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472755424}
   m_CullTransparentMesh: 1
+--- !u!114 &472755430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472755424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8552303346b4d54ba12321e8245200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  player: {fileID: 1645954633}
+  Ontime: 10
+  ClickMg: 0
 --- !u!1 &506219014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,10 +2273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8552303346b4d54ba12321e8245200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSkill: 0
   speed: 2
   player: {fileID: 1645954633}
   Ontime: 10
+  ClickMg: 0
 --- !u!1 &713661297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MGbtn: {fileID: 1297765457}
-  maxTime: 10
+  maxTime: 30
 --- !u!114 &849966939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2984,7 +3013,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 849966938}
         m_TargetAssemblyTypeName: CoLTimeUI, Assembly-CSharp
-        m_MethodName: clickChange
+        m_MethodName: clickMgbtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3057,8 +3086,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSkill: 0
-  fruitProp: 1
-  bombProp: 0
+  fruitProp: 0.9
+  bombProp: 0.1
   Ontime: 15
 --- !u!1 &897838210
 GameObject:

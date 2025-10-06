@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
-    public bool onSkill = false;
-    
+
     [Header("플레이어에게 다가가는 속도")]
     public float speed = 5f;
     public GameObject player;
@@ -13,6 +12,8 @@ public class Magnet : MonoBehaviour
     private float saveT = 0;
     private float gen = 1f;
 
+    public bool ClickMg = false;
+
     void Start()
     {
         saveT = Ontime;
@@ -21,7 +22,7 @@ public class Magnet : MonoBehaviour
     void Update()
     {
         Timer();
-        if (onSkill)
+        if (ClickMg)
         {
             Magnetsk();
             if (gen < 0)
@@ -53,6 +54,15 @@ public class Magnet : MonoBehaviour
     {
         saveT = Ontime;
         gen = 1f;
-        onSkill = false;
+        ClickMg = false;
+    }
+    
+    public void Mgbbtn()
+    {
+        if (!ClickMg)
+        {
+            ClickMg = true;
+        }
+
     }
 }

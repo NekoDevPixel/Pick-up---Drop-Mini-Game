@@ -32,7 +32,7 @@ public class Probability : MonoBehaviour
         {
             dropFruitz.Bombprob = bombProp;
             dropFruitz.Fruitprob = fruitProp;
-            if (gen < 0)
+            if (saveT <= 0)
             {
                 
                 resetProp();
