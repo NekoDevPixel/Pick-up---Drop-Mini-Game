@@ -7,6 +7,7 @@ public class GameData : MonoBehaviour
 
     // public int Fscore;
     public List<int> yourScore = new List<int>();
+    public int Total_sum_score = 0;
 
     private void Awake()
     {

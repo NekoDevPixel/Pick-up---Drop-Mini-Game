@@ -50,7 +50,7 @@ public class TotalScore : MonoBehaviour
         end = true;
         GameManager.Instance.PauseGame();
         TTscore.text = $"{GameManager.Instance.Total_score}";
-        GameData.Instance.yourScore.Add(GameManager.Instance.Total_score);
+        scoreManager();
         if (end)
         {
             panel.SetActive(true);
@@ -63,5 +63,11 @@ public class TotalScore : MonoBehaviour
     void animation_scoreBD()
     {
         scoreImage.transform.position += Vector3.down * downspeed * Time.unscaledDeltaTime;
+    }
+
+    void scoreManager()
+    {
+        GameData.Instance.yourScore.Add(GameManager.Instance.Total_score);
+        GameData.Instance.Total_sum_score += GameManager.Instance.Total_score;
     }
 }
