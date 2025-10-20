@@ -6,11 +6,12 @@ public class Liberation : MonoBehaviour
     public GameObject seal2;
 
     private bool checkchg = false;
+    private SkillBoard skillBoard;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        skillBoard = FindFirstObjectByType<SkillBoard>();
     }
 
     // Update is called once per frame
@@ -21,12 +22,14 @@ public class Liberation : MonoBehaviour
 
     void openskill()
     {
-        if (GameData.Instance.Total_sum_score > 300)
+        if (GameData.Instance.onSkill_mg)
         {
             seal1.SetActive(false);
+            GameData.Instance.onSkill_mg = false;
         }
-        else if (GameData.Instance.Total_sum_score > 600) {
+        if (GameData.Instance.onSkill_chg) {
             seal2.SetActive(false);
+            GameData.Instance.onSkill_chg = false;
         }
     }
 }

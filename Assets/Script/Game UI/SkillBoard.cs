@@ -10,21 +10,25 @@ public class SkillBoard : MonoBehaviour
 
     [Header("자석스킬")]
     public TextMeshProUGUI Mgbtn;
-    public bool onSkill_mg = false;
+    
 
     [Header("체인지스킬")]
     public TextMeshProUGUI chgbtn;
-    public bool onSkill_chg = false;
+    
 
     [Header("해방 조건 확인")]
     public GameObject OnOffBoard;
     public TextMeshProUGUI onoffsk;
 
-    private float ontime = 3f;
+    private float ontime = 1f;
+    private float savetime = 0f;
+    private float istime = 0f;
+    private bool isbtn = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        savetime = ontime;
         skillboard.SetActive(false);
         OnOffBoard.SetActive(false);
     }
@@ -32,15 +36,28 @@ public class SkillBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isbtn)
+        {
+            ontime -= Time.unscaledDeltaTime;
+            istime = ontime;
+            if(istime <= 0)
+            {
+                OnOffBoard.SetActive(false);
+                ontime = savetime;
+                isbtn = false;
+            }
+        }
     }
 
     public void clearMgSkill()
     {
-        if (GameData.Instance.Total_sum_score > 300)
+        OnOffBoard.SetActive(true);
+        isbtn = true;
+        if (GameData.Instance.Total_sum_score >= 300)
         {
             onoffsk.text = "스킬 해방이 성공하였습니다.";
             Mgbtn.text = "해방 완료";
+            GameData.Instance.onSkill_mg = true;
         }
         else
         {
@@ -50,10 +67,13 @@ public class SkillBoard : MonoBehaviour
     
     public void clearChgSkill()
     {
-        if (GameData.Instance.Total_sum_score > 600)
+        OnOffBoard.SetActive(true);
+        isbtn = true;
+        if (GameData.Instance.Total_sum_score >= 600)
         {
             onoffsk.text = "스킬 해방이 성공하였습니다.";
             chgbtn.text = "해방 완료";
+            GameData.Instance.onSkill_chg = true;
         }
         else
         {
