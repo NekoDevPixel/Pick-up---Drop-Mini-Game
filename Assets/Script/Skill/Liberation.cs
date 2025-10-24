@@ -5,13 +5,11 @@ public class Liberation : MonoBehaviour
     public GameObject seal1;
     public GameObject seal2;
 
-    private bool checkchg = false;
-    private SkillBoard skillBoard;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        skillBoard = FindFirstObjectByType<SkillBoard>();
+        
     }
 
     // Update is called once per frame
