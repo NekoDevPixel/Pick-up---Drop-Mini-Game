@@ -8,15 +8,18 @@ public class FeverTime_UI : MonoBehaviour
     public float FeverStack = 10f;
     public float tartgetF = 0f;
 
-    private bool isIncreasing = false;
-    private bool isDecreasing = false;
+    public bool isIncreasing = false;
+    public bool isDecreasing = false;
 
     private const float IncreaseRate = 5f;
     private const float DecayRate = 0.03f;
     private const float Tolerance = 0.01f;
 
+    
+
     void Start()
     {
+        
         FeverSD.value = 0f;
     }
 

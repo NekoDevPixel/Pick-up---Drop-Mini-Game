@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private UI uI;
     public Dictionary<string, int> CountFruitz;
 
+    private Fever fever;
+
     void Start()
     {
         CountFruitz = new Dictionary<string, int>()
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
             {"Watermelon",0},
             {"Bomb",0}
         };
-
+        fever = FindFirstObjectByType<Fever>();
         
     }
     void Awake()
@@ -49,52 +51,41 @@ public class GameManager : MonoBehaviour
     [Header("게임 제한 시간")]
     public float limtTime = 120f;
 
-    // public int CountA = 0;
-    // public int CountC = 0;
-    // public int CountG = 0;
-    // public int CountK = 0;
-    // public int CountO = 0;
-    // public int CountW = 0;
-    // public int CountB = 0;
-
-
-
-
     public void CheckFruitz(String fruitzName)
     {
         if (fruitzName == "Apple(Clone)")
         {
-            Total_score += Ascore;
+            fever.FeverScore(Ascore);
             CountFruitz["Apple"] += 1;
             GetScore.lookscore(Ascore);
         }
         else if (fruitzName == "Cherry(Clone)")
         {
-            Total_score += Cscore;
+            fever.FeverScore(Cscore);
             CountFruitz["Cherry"] += 1;
             GetScore.lookscore(Cscore);
         }
         else if (fruitzName == "Grapes(Clone)")
         {
-            Total_score += Gscore;
+            fever.FeverScore(Gscore);
             CountFruitz["Grapes"] += 1;
             GetScore.lookscore(Gscore);
         }
         else if (fruitzName == "Kiwi(Clone)")
         {
-            Total_score += Kscore;
+            fever.FeverScore(Kscore);
             CountFruitz["Kiwi"] += 1;
             GetScore.lookscore(Kscore);
         }
         else if (fruitzName == "Orange(Clone)")
         {
-            Total_score += Oscore;
+            fever.FeverScore(Oscore);
             CountFruitz["Orange"] += 1;
             GetScore.lookscore(Oscore);
         }
         else if (fruitzName == "Watermelon(Clone)")
         {
-            Total_score += Wscore;
+            fever.FeverScore(Wscore);
             CountFruitz["Watermelon"] += 1;
             GetScore.lookscore(Wscore);
         }

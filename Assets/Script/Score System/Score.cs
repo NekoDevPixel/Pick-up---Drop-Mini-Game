@@ -4,9 +4,11 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     private FeverTime_UI feverTime_UI;
+    private Fever fever;
 
     void Start()
     {
+        fever = FindFirstObjectByType<Fever>();
         feverTime_UI = FindFirstObjectByType<FeverTime_UI>();
     }
 
@@ -19,7 +21,11 @@ public class Score : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Fruit"))
             {
-                feverTime_UI.FeverTime(0.1f);
+                if (!fever.fullSD)
+                {
+                    feverTime_UI.FeverTime(0.1f);
+                }
+                
             }
             Destroy(collision.gameObject);
         }
