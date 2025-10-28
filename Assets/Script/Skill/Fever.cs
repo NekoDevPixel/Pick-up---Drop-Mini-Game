@@ -6,7 +6,7 @@ public class Fever : MonoBehaviour
     private FeverTime_UI feverTime_UI;
 
     public bool fullSD = false;
-    private const float DecayRate = 0.03f;
+    private const float DecayRate = 0.3f;
     [Header("레버리지")]
     public float leverage = 1.3f;
 
@@ -36,6 +36,7 @@ public class Fever : MonoBehaviour
             if (feverTime_UI.FeverSD.value <= 0)
             {
                 fullSD = false;
+                feverTime_UI.tartgetF = 0f;
             }
         }
     }

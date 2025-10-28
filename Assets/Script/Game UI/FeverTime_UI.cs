@@ -19,7 +19,6 @@ public class FeverTime_UI : MonoBehaviour
 
     void Start()
     {
-        
         FeverSD.value = 0f;
     }
 
@@ -34,14 +33,10 @@ public class FeverTime_UI : MonoBehaviour
             {
                 FeverSD.value = tartgetF;
                 isIncreasing = false;
-                isDecreasing = true; // 이제 감소 모드로 전환
+                isDecreasing = true; 
             }
         }
 
-        // 감소 중일 때
-        
-
-        // 최대값 제한
         if (FeverSD.value >= FeverSD.maxValue)
         {
             FeverSD.value = FeverSD.maxValue;

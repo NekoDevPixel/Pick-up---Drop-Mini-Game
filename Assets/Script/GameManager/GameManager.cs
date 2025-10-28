@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     [Header("게임 제한 시간")]
     public float limtTime = 120f;
+    
 
     public void CheckFruitz(String fruitzName)
     {
