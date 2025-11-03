@@ -11,7 +11,6 @@ public class GameData : MonoBehaviour
 
     [Header("게임스킬On_Off")]
     public bool onSkill_mg = false;
-    public bool onSkill_chg = false;
 
     private void Awake()
     {
@@ -23,4 +22,10 @@ public class GameData : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    [Header("자석스킬 지속시간")]
+    public float Ontime = 10f;
+    [Header("피버타임 지속시간")]
+    public float DecayRate = 0.3f;
+
 }

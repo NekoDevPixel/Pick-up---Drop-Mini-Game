@@ -7,12 +7,12 @@ public class StoreUI : MonoBehaviour
 {
     [Header("상점UI")]
     public GameObject Store;
-    private bool checkbtn = false;
+    // private bool checkbtn = false;
 
     [Header("상점 아이템 텍스트")]
     public TextMeshProUGUI[] item;
 
-    private int[] level = new int[4];
+    public int[] level = new int[4];
     private String[] Itext = new string[]
     {
         "피버타임 Up Lv.",
@@ -21,7 +21,8 @@ public class StoreUI : MonoBehaviour
         "골드 수급 Up Lv."
     };
 
-    private int maxlevel = 5;
+    public int maxlevel = 5;
+    private Store_System store_System;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +33,7 @@ public class StoreUI : MonoBehaviour
             item[i].text = $"{Itext[i]}{level[i]}";
         }
         // Store.SetActive(false);
-        
+        store_System = FindFirstObjectByType<Store_System>();
     }
 
     // Update is called once per frame
@@ -48,6 +49,7 @@ public class StoreUI : MonoBehaviour
         {
             level[0] += 1;
             item[0].text = $"{Itext[0]}{level[0]}";
+            store_System.upGradeFeverTime();
         }
     }
 
@@ -66,6 +68,7 @@ public class StoreUI : MonoBehaviour
         {
             level[2] += 1;
             item[2].text = $"{Itext[2]}{level[2]}";
+            store_System.upGradeMg();
         }
     }
     

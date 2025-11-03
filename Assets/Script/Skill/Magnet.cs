@@ -4,10 +4,8 @@ public class Magnet : MonoBehaviour
 {
 
     [Header("플레이어에게 다가가는 속도")]
-    public float speed = 5f;
     public GameObject player;
-    [Header("스킬 작동 시간")]
-    public float Ontime = 20f;
+    public float speed = 5f;
 
     private float saveT = 0;
     private float gen = 1f;
@@ -16,7 +14,7 @@ public class Magnet : MonoBehaviour
 
     void Start()
     {
-        saveT = Ontime;
+        saveT = GameData.Instance.Ontime;
     }
 
     void Update()
@@ -35,7 +33,7 @@ public class Magnet : MonoBehaviour
     void Timer()
     {
         saveT -= Time.deltaTime;
-        gen = saveT / Ontime;
+        gen = saveT / GameData.Instance.Ontime;
     }
 
     void Magnetsk()
@@ -52,7 +50,7 @@ public class Magnet : MonoBehaviour
 
     private void restT()
     {
-        saveT = Ontime;
+        saveT = GameData.Instance.Ontime;
         gen = 1f;
         ClickMg = false;
     }

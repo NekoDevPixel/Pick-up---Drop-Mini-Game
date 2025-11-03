@@ -12,10 +12,6 @@ public class SkillBoard : MonoBehaviour
     public TextMeshProUGUI Mgbtn;
     
 
-    [Header("체인지스킬")]
-    public TextMeshProUGUI chgbtn;
-    
-
     [Header("해방 조건 확인")]
     public GameObject OnOffBoard;
     public TextMeshProUGUI onoffsk;
@@ -65,22 +61,22 @@ public class SkillBoard : MonoBehaviour
         }
     }
     
-    public void clearChgSkill()
-    {
-        OnOffBoard.SetActive(true);
-        isbtn = true;
-        if (GameData.Instance.Total_sum_score >= 600)
-        {
-            onoffsk.text = "스킬 해방이 성공하였습니다.";
-            chgbtn.text = "해방 완료";
-            GameData.Instance.onSkill_chg = true;
-        }
-        else
-        {
+    // public void clearChgSkill()
+    // {
+    //     OnOffBoard.SetActive(true);
+    //     isbtn = true;
+    //     if (GameData.Instance.Total_sum_score >= 600)
+    //     {
+    //         onoffsk.text = "스킬 해방이 성공하였습니다.";
+    //         chgbtn.text = "해방 완료";
+    //         GameData.Instance.onSkill_chg = true;
+    //     }
+    //     else
+    //     {
             
-            onoffsk.text = "해방 조건을 달성하지 못했습니다.";
-        }
-    }
+    //         onoffsk.text = "해방 조건을 달성하지 못했습니다.";
+    //     }
+    // }
 
     public void onBoard()
     {
