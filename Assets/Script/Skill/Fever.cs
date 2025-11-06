@@ -7,8 +7,7 @@ public class Fever : MonoBehaviour
 
     public bool fullSD = false;
     
-    [Header("레버리지")]
-    public float leverage = 1.3f;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,8 +44,8 @@ public class Fever : MonoBehaviour
     {
         if (fullSD)
         {
-            GameManager.Instance.Total_score += (int)(score * leverage);
-            Debug.Log(score * leverage);
+            GameManager.Instance.Total_score += (int)(score * GameData.Instance.leverage);
+            Debug.Log(score * GameData.Instance.leverage);
         }
         else
         {

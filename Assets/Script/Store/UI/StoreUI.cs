@@ -7,12 +7,10 @@ public class StoreUI : MonoBehaviour
 {
     [Header("상점UI")]
     public GameObject Store;
-    // private bool checkbtn = false;
-
     [Header("상점 아이템 텍스트")]
     public TextMeshProUGUI[] item;
 
-    public int[] level = new int[4];
+    private int[] level = new int[4];
     private String[] Itext = new string[]
     {
         "피버타임 Up Lv.",
@@ -38,12 +36,6 @@ public class StoreUI : MonoBehaviour
         sp_gold = FindFirstObjectByType<supply_gold>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     //GUI텍스트 오브젝트가 순서대로 있다는 가정하에
     public void feverTime_Up()
     {
@@ -61,11 +53,16 @@ public class StoreUI : MonoBehaviour
 
     public void feverTimeLeverage_Up()
     {
-        if(maxlevel != level[1])
+        if(GameData.Instance.gold - store_System.lvgP >= 0)
+        {
+            if(maxlevel != level[1])
         {
             level[1] += 1;
             item[1].text = $"{Itext[1]}{level[1]}";
+            store_System.upGradeLeverage();
         }
+        }
+        
     }
 
     public void mg_Up()

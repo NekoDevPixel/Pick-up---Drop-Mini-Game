@@ -7,10 +7,13 @@ public class Store_System : MonoBehaviour
     [Header("업그레이드 수치")]
     public float mgTime = 1f;
     public float feverLVG = 0.005f;
+    public float leverageP = 0.5f;
 
     [Header("업그레이드스킬당 가격")]
     public int mt = 20;
     public int flvg = 40;
+    public int lvgP = 60;
+
 
     void Start()
     {
@@ -28,5 +31,11 @@ public class Store_System : MonoBehaviour
     {
         GameData.Instance.DecayRate -= feverLVG;
         sp_gold.buyItem(flvg);
+    }
+
+    public void upGradeLeverage()
+    {
+        GameData.Instance.leverage += leverageP;
+        sp_gold.buyItem(lvgP);
     }
 }
