@@ -2,23 +2,31 @@ using UnityEngine;
 
 public class Store_System : MonoBehaviour
 {
+    private supply_gold sp_gold;
+
     [Header("업그레이드 수치")]
     public float mgTime = 1f;
     public float feverLVG = 0.005f;
 
+    [Header("업그레이드스킬당 가격")]
+    public int mt = 20;
+    public int flvg = 40;
+
     void Start()
     {
-
+        sp_gold = FindFirstObjectByType<supply_gold>();
     }
 
 
     public void upGradeMg()
     {
         GameData.Instance.Ontime += mgTime;
+        sp_gold.buyItem(mt);
     }
 
     public void upGradeFeverTime()
     {
         GameData.Instance.DecayRate -= feverLVG;
+        sp_gold.buyItem(flvg);
     }
 }

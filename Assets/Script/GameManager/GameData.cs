@@ -27,5 +27,7 @@ public class GameData : MonoBehaviour
     public float Ontime = 10f;
     [Header("피버타임 지속시간")]
     public float DecayRate = 0.3f;
+    [Header("골드량")]
+    public int gold = 0;
 
 }

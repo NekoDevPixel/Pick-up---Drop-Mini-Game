@@ -23,6 +23,7 @@ public class StoreUI : MonoBehaviour
 
     public int maxlevel = 5;
     private Store_System store_System;
+    private supply_gold sp_gold;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,7 @@ public class StoreUI : MonoBehaviour
         }
         // Store.SetActive(false);
         store_System = FindFirstObjectByType<Store_System>();
+        sp_gold = FindFirstObjectByType<supply_gold>();
     }
 
     // Update is called once per frame
@@ -45,12 +47,16 @@ public class StoreUI : MonoBehaviour
     //GUI텍스트 오브젝트가 순서대로 있다는 가정하에
     public void feverTime_Up()
     {
-        if(maxlevel != level[0])
+        if(GameData.Instance.gold - store_System.flvg >= 0)
         {
-            level[0] += 1;
-            item[0].text = $"{Itext[0]}{level[0]}";
-            store_System.upGradeFeverTime();
+            if(maxlevel != level[0])
+            {
+                level[0] += 1;
+                item[0].text = $"{Itext[0]}{level[0]}";
+                store_System.upGradeFeverTime();
+            }
         }
+        
     }
 
     public void feverTimeLeverage_Up()
@@ -64,12 +70,16 @@ public class StoreUI : MonoBehaviour
 
     public void mg_Up()
     {
-        if(maxlevel != level[2])
+        if(GameData.Instance.gold - store_System.mt >= 0)
         {
-            level[2] += 1;
-            item[2].text = $"{Itext[2]}{level[2]}";
-            store_System.upGradeMg();
+            if(maxlevel != level[2])
+            {
+                level[2] += 1;
+                item[2].text = $"{Itext[2]}{level[2]}";
+                store_System.upGradeMg();
+            }
         }
+        
     }
     
     public void gld_Up()
