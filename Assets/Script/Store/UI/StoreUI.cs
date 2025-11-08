@@ -81,11 +81,16 @@ public class StoreUI : MonoBehaviour
     
     public void gld_Up()
     {
-        if(maxlevel != level[3])
+        if(GameData.Instance.gold - store_System.Gup >= 0)
         {
-            level[3] += 1;
-            item[3].text = $"{Itext[3]}{level[3]}";
+            if(maxlevel != level[3])
+            {
+                level[3] += 1;
+                item[3].text = $"{Itext[3]}{level[3]}";
+                store_System.upGrade_gold();
+            }
         }
+        
     }
 
     public void CloseST()

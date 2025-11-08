@@ -14,6 +14,8 @@ public class TotalScore : MonoBehaviour
     private float endTime;
     private bool moveimg = false;
 
+    private IngameGold ingameGold;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +23,7 @@ public class TotalScore : MonoBehaviour
         endTime = GameManager.Instance.limtTime;
         panel.SetActive(false);
         scoreImage.SetActive(false);
+        ingameGold = FindFirstObjectByType<IngameGold>();
     }
 
     // Update is called once per frame
@@ -50,6 +53,7 @@ public class TotalScore : MonoBehaviour
         end = true;
         GameManager.Instance.PauseGame();
         TTscore.text = $"{GameManager.Instance.Total_score}";
+        ingameGold.plusFruitz_Gold();
         scoreManager();
         if (end)
         {

@@ -601,7 +601,7 @@ MonoBehaviour:
   Ontime: 10
   DecayRate: 0.3
   leverage: 1.3
-  gold: 100
+  gold: 0
 --- !u!4 &212859034
 Transform:
   m_ObjectHideFlags: 0

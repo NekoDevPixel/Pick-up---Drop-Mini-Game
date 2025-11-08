@@ -35,12 +35,7 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("과일 점수")]
-    public int Ascore = 0;
-    public int Cscore = 0;
-    public int Gscore = 0;
-    public int Kscore = 0;
-    public int Oscore = 0;
-    public int Wscore = 0;
+    public int[] Fscore = new int[6];
 
     [Header("지뢰 점수")]
     public int Bombscore = 0;
@@ -56,39 +51,39 @@ public class GameManager : MonoBehaviour
     {
         if (fruitzName == "Apple(Clone)")
         {
-            fever.FeverScore(Ascore);
+            fever.FeverScore(Fscore[0]);
             CountFruitz["Apple"] += 1;
-            GetScore.lookscore(Ascore);
+            GetScore.lookscore(Fscore[0]);
         }
         else if (fruitzName == "Cherry(Clone)")
         {
-            fever.FeverScore(Cscore);
+            fever.FeverScore(Fscore[1]);
             CountFruitz["Cherry"] += 1;
-            GetScore.lookscore(Cscore);
+            GetScore.lookscore(Fscore[1]);
         }
         else if (fruitzName == "Grapes(Clone)")
         {
-            fever.FeverScore(Gscore);
+            fever.FeverScore(Fscore[2]);
             CountFruitz["Grapes"] += 1;
-            GetScore.lookscore(Gscore);
+            GetScore.lookscore(Fscore[2]);
         }
         else if (fruitzName == "Kiwi(Clone)")
         {
-            fever.FeverScore(Kscore);
+            fever.FeverScore(Fscore[3]);
             CountFruitz["Kiwi"] += 1;
-            GetScore.lookscore(Kscore);
+            GetScore.lookscore(Fscore[3]);
         }
         else if (fruitzName == "Orange(Clone)")
         {
-            fever.FeverScore(Oscore);
+            fever.FeverScore(Fscore[4]);
             CountFruitz["Orange"] += 1;
-            GetScore.lookscore(Oscore);
+            GetScore.lookscore(Fscore[4]);
         }
         else if (fruitzName == "Watermelon(Clone)")
         {
-            fever.FeverScore(Wscore);
+            fever.FeverScore(Fscore[5]);
             CountFruitz["Watermelon"] += 1;
-            GetScore.lookscore(Wscore);
+            GetScore.lookscore(Fscore[5]);
         }
         else if (fruitzName == "Bomb(Clone)")
         {

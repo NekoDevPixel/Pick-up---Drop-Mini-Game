@@ -8,11 +8,14 @@ public class Store_System : MonoBehaviour
     public float mgTime = 1f;
     public float feverLVG = 0.005f;
     public float leverageP = 0.5f;
+    public float goldUP = 0.2f;
 
     [Header("업그레이드스킬당 가격")]
     public int mt = 20;
     public int flvg = 40;
     public int lvgP = 60;
+    public int Gup = 80;
+    
 
 
     void Start()
@@ -37,5 +40,11 @@ public class Store_System : MonoBehaviour
     {
         GameData.Instance.leverage += leverageP;
         sp_gold.buyItem(lvgP);
+    }
+
+    public void upGrade_gold()
+    {
+        GameData.Instance.LVGgold += goldUP;
+        sp_gold.buyItem(Gup);
     }
 }

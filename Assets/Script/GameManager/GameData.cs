@@ -31,5 +31,8 @@ public class GameData : MonoBehaviour
     public float leverage = 1.3f;
     [Header("골드량")]
     public int gold = 0;
+    [Header("골드 획득배율")]
+    public float LVGgold = 1.0f;
+
 
 }
