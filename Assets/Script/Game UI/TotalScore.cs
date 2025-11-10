@@ -15,6 +15,7 @@ public class TotalScore : MonoBehaviour
     private bool moveimg = false;
 
     private IngameGold ingameGold;
+    public bool finishGame = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,6 +56,7 @@ public class TotalScore : MonoBehaviour
         TTscore.text = $"{GameManager.Instance.Total_score}";
         ingameGold.plusFruitz_Gold();
         scoreManager();
+        finishGame = true;
         if (end)
         {
             panel.SetActive(true);
