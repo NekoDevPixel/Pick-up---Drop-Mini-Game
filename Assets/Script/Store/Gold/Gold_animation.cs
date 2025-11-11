@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Gold_animation : MonoBehaviour
 {
     public Image[] fruit = new Image[7];
-    public Transform[] OBJfruit = new Transform[7];
+    public RectTransform[] OBJfruit = new RectTransform[7];
 
     public Transform parent;
     public Transform Finish;
@@ -36,9 +37,13 @@ public class Gold_animation : MonoBehaviour
             createFruit();
             isAnimationStarted = true;
         }
+        if (isAnimationStarted)
+        {
+            MoveFruits();
+        }
     }
 
-    private void createFruit()
+    private void createFruit()//생성까지끝
     {
         for (int i = 0; i < fruit.Length; i++)
         {
@@ -48,12 +53,12 @@ public class Gold_animation : MonoBehaviour
 
             for (int j = 0; j < count; j++)
             {
-                GameObject gbj = Instantiate(fruit[i].gameObject, parent);
+                GameObject gbj = Instantiate(fruit[i].gameObject,OBJfruit[i].anchoredPosition,quaternion.identity,parent);
                 RectTransform rt = gbj.GetComponent<RectTransform>();
                 rt.anchoredPosition = OBJfruit[i].GetComponent<RectTransform>().anchoredPosition;
                 moveFruit.Add(gbj);
+                
             }
-            MoveFruits();
         }
     }
 
@@ -68,11 +73,11 @@ public class Gold_animation : MonoBehaviour
             RectTransform rt = f.GetComponent<RectTransform>();
             RectTransform target = Finish.GetComponent<RectTransform>();
 
-            // 부모가 다르면 월드 좌표 기준 이동 가능
-            Vector3 worldPos = Vector3.MoveTowards(rt.position, target.position, speed * Time.deltaTime);
+            
+            Vector2 worldPos = Vector2.MoveTowards(rt.position, target.position, speed);
             rt.position = worldPos;
 
-            if (Vector3.Distance(rt.position, target.position) < 0.1f)
+            if (Vector2.Distance(rt.position, target.position) < 0.1f)
             {
                 Destroy(f);
                 toRemove.Add(f);
@@ -89,7 +94,7 @@ public class Gold_animation : MonoBehaviour
 
     private IEnumerator GoldAnimationCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(8f);
         
     }
 }
