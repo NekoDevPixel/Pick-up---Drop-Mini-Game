@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
         CountFruitz = new Dictionary<string, int>()
         {
             {"Apple",0},
-            {"Cherry",0},
+            {"Watermelon",0},
             {"Grapes",0},
             {"Kiwi",0},
             {"Orange",0},
-            {"Watermelon",0},
+            {"Cherry",0},
             {"Bomb",0}
         };
         fever = FindFirstObjectByType<Fever>();

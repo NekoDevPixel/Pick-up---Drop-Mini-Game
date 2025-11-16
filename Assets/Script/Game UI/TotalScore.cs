@@ -44,6 +44,7 @@ public class TotalScore : MonoBehaviour
             animation_scoreBD();
             if (scoreImage.transform.localPosition.y < 0f)
             {
+                finishGame = true;
                 moveimg = false;
             }
         }
@@ -56,7 +57,7 @@ public class TotalScore : MonoBehaviour
         TTscore.text = $"{GameManager.Instance.Total_score}";
         ingameGold.plusFruitz_Gold();
         scoreManager();
-        finishGame = true;
+        
         if (end)
         {
             panel.SetActive(true);
