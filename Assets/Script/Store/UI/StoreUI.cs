@@ -10,7 +10,7 @@ public class StoreUI : MonoBehaviour
     [Header("상점 아이템 텍스트")]
     public TextMeshProUGUI[] item;
 
-    private int[] level = new int[4];
+    public int[] level = new int[4];
     private String[] Itext = new string[]
     {
         "피버타임 Up Lv.",

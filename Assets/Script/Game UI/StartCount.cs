@@ -1,7 +1,7 @@
 using System.Collections;
 using TMPro;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartCount : MonoBehaviour
 {

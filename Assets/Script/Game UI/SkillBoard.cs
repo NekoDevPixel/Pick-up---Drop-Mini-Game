@@ -27,6 +27,14 @@ public class SkillBoard : MonoBehaviour
         savetime = ontime;
         skillboard.SetActive(false);
         OnOffBoard.SetActive(false);
+        
+    }
+    void Awake()
+    {
+        if (GameData.Instance.Total_sum_score >= 300)
+        {
+            GameData.Instance.onSkill_mg = true;
+        }
     }
 
     // Update is called once per frame
