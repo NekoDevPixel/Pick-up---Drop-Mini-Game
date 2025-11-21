@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class SkillBoard : MonoBehaviour
 {
@@ -21,20 +22,24 @@ public class SkillBoard : MonoBehaviour
     private float istime = 0f;
     private bool isbtn = false;
 
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         savetime = ontime;
         skillboard.SetActive(false);
         OnOffBoard.SetActive(false);
+        if (GameData.Instance.Total_sum_score >= 300 && GameData.Instance.clickbtn)
+        {
+            GameData.Instance.onSkill_mg = true;
+            Mgbtn.text = "해방 완료";
+        }
         
     }
     void Awake()
     {
-        if (GameData.Instance.Total_sum_score >= 300)
-        {
-            GameData.Instance.onSkill_mg = true;
-        }
+        
     }
 
     // Update is called once per frame
@@ -57,11 +62,16 @@ public class SkillBoard : MonoBehaviour
     {
         OnOffBoard.SetActive(true);
         isbtn = true;
-        if (GameData.Instance.Total_sum_score >= 300)
+        if (GameData.Instance.Total_sum_score >= 300 && !GameData.Instance.clickbtn)
         {
+            GameData.Instance.clickbtn = true;
             onoffsk.text = "스킬 해방이 성공하였습니다.";
             Mgbtn.text = "해방 완료";
             GameData.Instance.onSkill_mg = true;
+        }
+        else if (GameData.Instance.onSkill_mg && GameData.Instance.clickbtn)
+        {
+            onoffsk.text = "이미 스킬 해방이 완료되었습니다..";
         }
         else
         {

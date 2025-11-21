@@ -24,6 +24,7 @@ public class StoreData
     public float Sleverage;
     public float Slvhgold;
     public int Sgold;
+    public bool Sclickbtn;
 }
 
 public class GameSaveData : MonoBehaviour
@@ -121,7 +122,8 @@ public class GameSaveData : MonoBehaviour
                 Sdecayrater = 0.3f,
                 Sleverage = 1.3f,
                 Sgold = 0,
-                Slvhgold = 1.0f
+                Slvhgold = 1.0f,
+                Sclickbtn = false
             };
         }
     }

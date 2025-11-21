@@ -10,7 +10,7 @@ public class StoreUI : MonoBehaviour
     [Header("상점 아이템 텍스트")]
     public TextMeshProUGUI[] item;
 
-    public int[] level = new int[4];
+    
     private String[] Itext = new string[]
     {
         "피버타임 Up Lv.",
@@ -26,11 +26,11 @@ public class StoreUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i = 0; i < level.Length; i++)
+        for(int i = 0; i < GameData.Instance.level.Length; i++)
         {
-            level[i] = 0;
-            item[i].text = $"{Itext[i]}{level[i]}";
+            item[i].text = $"{Itext[i]}{GameData.Instance.level[i]}";
         }
+        
         // Store.SetActive(false);
         store_System = FindFirstObjectByType<Store_System>();
         sp_gold = FindFirstObjectByType<supply_gold>();
@@ -41,10 +41,10 @@ public class StoreUI : MonoBehaviour
     {
         if(GameData.Instance.gold - store_System.flvg >= 0)
         {
-            if(maxlevel != level[0])
+            if(maxlevel != GameData.Instance.level[0])
             {
-                level[0] += 1;
-                item[0].text = $"{Itext[0]}{level[0]}";
+                GameData.Instance.level[0] += 1;
+                item[0].text = $"{Itext[0]}{GameData.Instance.level[0]}";
                 store_System.upGradeFeverTime();
             }
         }
@@ -55,10 +55,10 @@ public class StoreUI : MonoBehaviour
     {
         if(GameData.Instance.gold - store_System.lvgP >= 0)
         {
-            if(maxlevel != level[1])
+            if(maxlevel != GameData.Instance.level[1])
         {
-            level[1] += 1;
-            item[1].text = $"{Itext[1]}{level[1]}";
+            GameData.Instance.level[1] += 1;
+            item[1].text = $"{Itext[1]}{GameData.Instance.level[1]}";
             store_System.upGradeLeverage();
         }
         }
@@ -69,10 +69,10 @@ public class StoreUI : MonoBehaviour
     {
         if(GameData.Instance.gold - store_System.mt >= 0)
         {
-            if(maxlevel != level[2])
+            if(maxlevel != GameData.Instance.level[2])
             {
-                level[2] += 1;
-                item[2].text = $"{Itext[2]}{level[2]}";
+                GameData.Instance.level[2] += 1;
+                item[2].text = $"{Itext[2]}{GameData.Instance.level[2]}";
                 store_System.upGradeMg();
             }
         }
@@ -83,10 +83,10 @@ public class StoreUI : MonoBehaviour
     {
         if(GameData.Instance.gold - store_System.Gup >= 0)
         {
-            if(maxlevel != level[3])
+            if(maxlevel != GameData.Instance.level[3])
             {
-                level[3] += 1;
-                item[3].text = $"{Itext[3]}{level[3]}";
+                GameData.Instance.level[3] += 1;
+                item[3].text = $"{Itext[3]}{GameData.Instance.level[3]}";
                 store_System.upGrade_gold();
             }
         }

@@ -23,7 +23,6 @@ public class SaveManager : MonoBehaviour
 
     void Start()
     {
-        storeUI = FindFirstObjectByType<StoreUI>();
         gameSaveData = FindFirstObjectByType<GameSaveData>();
     }
 
@@ -31,6 +30,13 @@ public class SaveManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void clickbtn()
+    {
+        inputScoreData();
+        inputSkillData();
+        inputStoreData();
     }
 
     public void inputScoreData()
@@ -49,12 +55,14 @@ public class SaveManager : MonoBehaviour
     {
         storeData = new StoreData
         {
-            Slevel = storeUI.level,
+            Slevel = GameData.Instance.level,
             Smgtime = GameData.Instance.Ontime,
             Sdecayrater = GameData.Instance.DecayRate,
             Sleverage = GameData.Instance.leverage,
             Slvhgold = GameData.Instance.LVGgold,
-            Sgold = GameData.Instance.gold
+            Sgold = GameData.Instance.gold,
+            Sclickbtn = GameData.Instance.clickbtn
         };
+        gameSaveData.SaveDataT(storeData);
     }
 }

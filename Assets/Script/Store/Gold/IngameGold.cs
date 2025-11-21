@@ -37,6 +37,6 @@ public class IngameGold : MonoBehaviour
             sumGold += (int)(GameManager.Instance.CountFruitz[fruitz[i]] * fruGold[i] * GameData.Instance.LVGgold);
         }
         
-        GameData.Instance.gold = sumGold;
+        GameData.Instance.gold += sumGold;
     }
 }

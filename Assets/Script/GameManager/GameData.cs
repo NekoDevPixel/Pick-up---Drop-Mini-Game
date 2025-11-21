@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GameData : MonoBehaviour
@@ -12,17 +13,6 @@ public class GameData : MonoBehaviour
     [Header("게임스킬On_Off")]
     public bool onSkill_mg = false;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
     [Header("자석스킬 지속시간")]
     public float Ontime = 10f;
     [Header("피버타임 지속시간")]
@@ -33,6 +23,49 @@ public class GameData : MonoBehaviour
     public int gold = 0;
     [Header("골드 획득배율")]
     public float LVGgold = 1.0f;
+
+    public int[] level = new int[]
+    {
+        0,
+        0,
+        0,
+        0,
+    };
+
+    private GameSaveData gameSaveData;
+    public bool clickbtn =false;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
+        gameSaveData = FindFirstObjectByType<GameSaveData>();
+        SkillData skillData = gameSaveData.KLoadData();
+        StoreData storeData = gameSaveData.TLoadData();
+        ScoreData scoreData = gameSaveData.CLoadData();
+
+        Total_sum_score = skillData.Total_score;
+        
+        yourScore = scoreData.scoreList;
+
+        level = storeData.Slevel;
+        Ontime = storeData.Smgtime;
+        DecayRate = storeData.Sdecayrater;
+        leverage = storeData.Sleverage;
+        gold = storeData.Sgold;
+        LVGgold = storeData.Slvhgold;
+        clickbtn = storeData.Sclickbtn;
+    }
+
+    
 
 
 }
