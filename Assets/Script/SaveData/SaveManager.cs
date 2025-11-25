@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    private StoreUI storeUI;
+    // private StoreUI storeUI;
 
-    private ScoreData scoreData;
-    private StoreData storeData;
-    private SkillData skillData;
+    // private ScoreData scoreData;
+    private GData gData;
+    // private SkillData skillData;
 
     private GameSaveData gameSaveData;
 
@@ -34,27 +34,17 @@ public class SaveManager : MonoBehaviour
 
     public void clickbtn()
     {
-        inputScoreData();
-        inputSkillData();
-        inputStoreData();
+        inputData();
+        // inputSkillData();
+        // inputStoreData();
     }
 
-    public void inputScoreData()
+    public void inputData()
     {
-        scoreData = new ScoreData{scoreList = GameData.Instance.yourScore};
-        gameSaveData.SaveDataC(scoreData);
-    }
-
-    public void inputSkillData()
-    {
-        skillData = new SkillData{Total_score = GameData.Instance.Total_sum_score};
-        gameSaveData.SaveDataK(skillData);
-    }
-
-    public void inputStoreData()
-    {
-        storeData = new StoreData
+        gData = new GData
         {
+            scoreList = GameData.Instance.yourScore,
+            Total_score = GameData.Instance.Total_sum_score,
             Slevel = GameData.Instance.level,
             Smgtime = GameData.Instance.Ontime,
             Sdecayrater = GameData.Instance.DecayRate,
@@ -63,6 +53,27 @@ public class SaveManager : MonoBehaviour
             Sgold = GameData.Instance.gold,
             Sclickbtn = GameData.Instance.clickbtn
         };
-        gameSaveData.SaveDataT(storeData);
+        gameSaveData.SaveData(gData);
     }
+
+    // public void inputSkillData()
+    // {
+    //     skillData = new SkillData{Total_score = GameData.Instance.Total_sum_score};
+    //     gameSaveData.SaveDataK(skillData);
+    // }
+
+    // public void inputStoreData()
+    // {
+    //     storeData = new StoreData
+    //     {
+    //         Slevel = GameData.Instance.level,
+    //         Smgtime = GameData.Instance.Ontime,
+    //         Sdecayrater = GameData.Instance.DecayRate,
+    //         Sleverage = GameData.Instance.leverage,
+    //         Slvhgold = GameData.Instance.LVGgold,
+    //         Sgold = GameData.Instance.gold,
+    //         Sclickbtn = GameData.Instance.clickbtn
+    //     };
+    //     gameSaveData.SaveDataT(storeData);
+    // }
 }

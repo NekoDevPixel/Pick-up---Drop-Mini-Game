@@ -17,10 +17,10 @@ public class DropFruitz : MonoBehaviour
     public Transform parent;
 
     [Header("과일 생성 확률(0~1)(폭탄 생성 확률과 과일 생성 확률의 합은 1)")]
-    public float Fruitprob = 0.5f;
+    public float Fruitprob = 0.7f;
 
     [Header("폭탄 생성 확률(0~1)")]
-    public float Bombprob = 0.5f;
+    public float Bombprob = 0.3f;
 
     void Start()
     {

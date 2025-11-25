@@ -48,21 +48,21 @@ public class GameData : MonoBehaviour
     private void Start()
     {
         gameSaveData = FindFirstObjectByType<GameSaveData>();
-        SkillData skillData = gameSaveData.KLoadData();
-        StoreData storeData = gameSaveData.TLoadData();
-        ScoreData scoreData = gameSaveData.CLoadData();
+        // SkillData skillData = gameSaveData.KLoadData();
+        GData gData = gameSaveData.LoadData();
+        // ScoreData scoreData = gameSaveData.CLoadData();
 
-        Total_sum_score = skillData.Total_score;
+        Total_sum_score = gData.Total_score;
         
-        yourScore = scoreData.scoreList;
+        yourScore = gData.scoreList;
 
-        level = storeData.Slevel;
-        Ontime = storeData.Smgtime;
-        DecayRate = storeData.Sdecayrater;
-        leverage = storeData.Sleverage;
-        gold = storeData.Sgold;
-        LVGgold = storeData.Slvhgold;
-        clickbtn = storeData.Sclickbtn;
+        level = gData.Slevel;
+        Ontime = gData.Smgtime;
+        DecayRate = gData.Sdecayrater;
+        leverage = gData.Sleverage;
+        gold = gData.Sgold;
+        LVGgold = gData.Slvhgold;
+        clickbtn = gData.Sclickbtn;
     }
 
     
