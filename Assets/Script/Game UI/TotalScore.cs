@@ -17,6 +17,8 @@ public class TotalScore : MonoBehaviour
     private IngameGold ingameGold;
     public bool finishGame = false;
 
+    private PhotonServer photonServer;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +27,7 @@ public class TotalScore : MonoBehaviour
         panel.SetActive(false);
         scoreImage.SetActive(false);
         ingameGold = FindFirstObjectByType<IngameGold>();
+        photonServer = FindFirstObjectByType<PhotonServer>();
     }
 
     // Update is called once per frame
@@ -44,7 +47,10 @@ public class TotalScore : MonoBehaviour
             animation_scoreBD();
             if (scoreImage.transform.localPosition.y < 0f)
             {
-                finishGame = true;
+                if (!photonServer.isMulti)
+                {
+                    finishGame = true;
+                }
                 moveimg = false;
             }
         }
@@ -55,8 +61,16 @@ public class TotalScore : MonoBehaviour
         end = true;
         GameManager.Instance.PauseGame();
         TTscore.text = $"{GameManager.Instance.Total_score}";
-        ingameGold.plusFruitz_Gold();
-        scoreManager();
+        
+        if (!photonServer.isMulti)
+        {
+            ingameGold.plusFruitz_Gold();
+            scoreManager();
+        }
+        // else
+        // {
+        //     photonServer.SubmitScore(GameManager.Instance.Total_score);
+        // }
         
         if (end)
         {
@@ -77,4 +91,7 @@ public class TotalScore : MonoBehaviour
         GameData.Instance.yourScore.Add(GameManager.Instance.Total_score);
         GameData.Instance.Total_sum_score += GameManager.Instance.Total_score;
     }
+
+    
+
 }

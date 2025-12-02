@@ -4,12 +4,15 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Text.RegularExpressions;
 using System.IO;
+using ExitGames.Client.Photon;
 
 public class PhotonServer : MonoBehaviourPunCallbacks
 {
 
     private MatchUI matchUI;
     private int currentPlayerCount;
+
+    public bool isMulti = false;
     void Start()
     {
         matchUI = FindFirstObjectByType<MatchUI>();
@@ -31,7 +34,7 @@ public class PhotonServer : MonoBehaviourPunCallbacks
         matchUI.NameUI.SetActive(true);
         matchUI.RoomUI.SetActive(false);
         matchUI.Name[1].text = "";
-
+        isMulti = false;
         currentPlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
         matchUI.Name[3].text = "";
         // matchUI.Name[0].text = $"현재 인원: {currentPlayerCount} / 2";
@@ -65,8 +68,8 @@ public class PhotonServer : MonoBehaviourPunCallbacks
 
         UpdatePlayerListUI();
         if (currentPlayerCount == 2)
-        {
-
+        { 
+            isMulti = true;
             StartGame();
         }
         else
@@ -86,7 +89,7 @@ public class PhotonServer : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            // StartGame();
+            StartGame();
         }
     }
 
@@ -98,6 +101,45 @@ public class PhotonServer : MonoBehaviourPunCallbacks
     
     }
 
+    // public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    // {
+    //     if (changedProps.ContainsKey("score"))
+    //     {
+    //         CheckBothPlayersScore();
+    //     }
+    // }
+
+    // void CheckBothPlayersScore()
+    // {
+    //     Player p1 = PhotonNetwork.PlayerList[0];
+    //     Player p2 = PhotonNetwork.PlayerList[1];
+
+    //     if (p1.CustomProperties.ContainsKey("score") &&
+    //         p2.CustomProperties.ContainsKey("score"))
+    //     {
+    //         int score1 = (int)p1.CustomProperties["score"];
+    //         int score2 = (int)p2.CustomProperties["score"];
+
+    //         CompareScore(score1, score2);
+    //     }
+    // }
+
+    // void CompareScore(int score1, int score2)
+    // {
+    //     if (score1 > score2)
+    //     {
+    //         Debug.Log("Player 1 승리!");
+    //     }
+    //     else if (score2 > score1)
+    //     {
+    //         Debug.Log("Player 2 승리!");
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("무승부!");
+    //     }
+    // }
+
     void StartGame()
     {
         // 방장(MasterClient)만 씬을 로딩하도록 함
@@ -105,7 +147,7 @@ public class PhotonServer : MonoBehaviourPunCallbacks
         {
             // "GameScene" 부분에 실제 게임 씬 이름을 적어주세요.
             // File > Build Settings에 해당 씬이 등록되어 있어야 합니다.
-            PhotonNetwork.LoadLevel("GameScene");
+            PhotonNetwork.LoadLevel("InGame");
         }
     }
 
@@ -124,4 +166,12 @@ public class PhotonServer : MonoBehaviourPunCallbacks
         currentPlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
         matchUI.Name[0].text = $"현재 인원: {currentPlayerCount} / 2";
     }
+    
+    // public void SubmitScore(int score)
+    // {
+    //     Hashtable hash = new Hashtable();
+    //     hash["score"] = score;
+
+    //     PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+    // }
 }
