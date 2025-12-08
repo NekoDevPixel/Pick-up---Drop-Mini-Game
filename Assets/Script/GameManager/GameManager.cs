@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using ExitGames.Client.Photon;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -99,6 +101,18 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+        UpdateNetworkScore(Total_score);
+    }
+
+    public void UpdateNetworkScore(int score)
+    {
+        // 멀티플레이 상태가 아니면 실행 안 함 (오류 방지)
+        if (PhotonNetwork.IsConnected == false) return;
+
+        Hashtable props = new Hashtable();
+        props.Add("Score", score); // "Score"라는 이름표로 내 점수 저장
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
     }
 
     public void PauseGame()
