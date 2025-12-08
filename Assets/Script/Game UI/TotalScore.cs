@@ -51,7 +51,7 @@ public class TotalScore : MonoBehaviourPunCallbacks
 
         if (NTime <= 0f)
         {
-            panel.SetActive(true);
+            
             // [변경] 싱글/멀티 분기 처리
             if (PhotonServer.Instance.isMulti)
             {
@@ -110,7 +110,7 @@ public class TotalScore : MonoBehaviourPunCallbacks
     {
         end = true;
         GameManager.Instance.PauseGame(); 
-        
+        panel.SetActive(true);
         Hashtable props = new Hashtable { { "Score", GameManager.Instance.Total_score } };
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
