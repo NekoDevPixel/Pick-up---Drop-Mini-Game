@@ -188,8 +188,14 @@ public class TotalScore : MonoBehaviourPunCallbacks
 
     public void btn()
     {
-        PhotonNetwork.LeaveRoom();
-        PhotonNetwork.Disconnect();
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+        }
         SceneManager.LoadScene("MainMenu");
     }
 }

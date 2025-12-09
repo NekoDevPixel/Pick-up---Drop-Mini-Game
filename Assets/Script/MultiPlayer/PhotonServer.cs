@@ -36,8 +36,14 @@ public class PhotonServer : MonoBehaviourPunCallbacks
 
     public void quitbtn()
     {
-        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+        if (PhotonNetwork.IsConnected)
+        {
         PhotonNetwork.Disconnect();
+        }
         matchUI.NameUI.SetActive(true);
         matchUI.RoomUI.SetActive(false);
         matchUI.Name[1].text = "";
@@ -131,7 +137,14 @@ public class PhotonServer : MonoBehaviourPunCallbacks
 
     private void UpdatePlayerCountUI()
     {
-        currentPlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+        if (PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom != null)
+        {
+            currentPlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+        }
+        else
+        {
+            currentPlayerCount = 0;
+        }
         matchUI.Name[0].text = $"현재 인원: {currentPlayerCount} / 2";
     }
 }
