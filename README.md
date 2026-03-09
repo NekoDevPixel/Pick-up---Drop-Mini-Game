@@ -33,6 +33,16 @@
 
 ***
 
+## 📦 사용 에셋 (Assets Used)
+
+프로젝트 제작을 위해 아래의 외부 에셋을 사용하였습니다.
+
+* **Character:** [Protagonist Character by Penzilla](https://penzilla.itch.io/protagonist-character)
+* **Items:** [Bombs etc by ScootMcDuck](https://scootmcduck.itch.io/bombs-etc)
+* **Items:** [Pixel Pack - Retro Fruitz (Unity Asset Store)](https://assetstore.unity.com/packages/2d/gui/icons/pixel-pack-retro-fruitz-315975)
+
+***
+
 ## 🛠️ 기술 스택 (Tech Stack)
 
 ### 🚀 Engine
